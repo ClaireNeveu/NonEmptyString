@@ -2,9 +2,11 @@ package nonemptystring
 
 import internal._
 
-import macrame.delegate
 import scala.collection.immutable.StringOps
 
+/**
+ * As String but guaranteed to contain at least one character.
+ */
 final case class NonEmptyString(val head : Char, val tail : String) {
    override def toString : String = head.toString + tail
    def charAt(x1 : Int) : Char = toString.charAt(x1)
