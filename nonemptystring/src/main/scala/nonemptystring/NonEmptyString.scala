@@ -74,11 +74,14 @@ final case class NonEmptyString(val head : Char, val tail : String) {
 }
 
 object NonEmptyString {
+	/**
+	 * If the given string is non-empty, return a NonEmptyString, otherwise None.
+	 */
    def fromString(s : String) : Option[NonEmptyString] =
       if (s.isEmpty)
-         Some(NonEmptyString(s.charAt(0), s.substring(1)))
-      else
          None
+      else
+         Some(NonEmptyString(s.charAt(0), s.substring(1)))
 
    implicit def toStringOps(nes : NonEmptyString) : StringOps = new StringOps(nes.toString)
 }
